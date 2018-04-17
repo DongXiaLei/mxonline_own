@@ -27,8 +27,8 @@
 					<!--登录后跳转-->
 
 
-                         <a style="color:white" class="fr registerbtn" href="register.html">注册</a>
-                         <a style="color:white" class="fr loginbtn" href="/login/">登录</a>
+                         <a style="color:white" class="fr registerbtn" href="{% url 'register' %}">注册</a>
+                         <a style="color:white" class="fr loginbtn" href="{% url 'login' %}">登录</a><!--{}内可以替换为/login/-->
 
 						<div class="personal">
                             <dl class="user fr">

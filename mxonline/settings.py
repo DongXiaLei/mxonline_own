@@ -25,6 +25,7 @@ sys.path.insert(0,os.path.join(BASE_DIR,'extra_apps'))
 SECRET_KEY = 'ofzn(-&-gq1l$1bc!0b@r4^3qrb779jf^d%w_%eb9=n5n1yn5$'
 
 # SECURITY WARNING: don't run with debug turned on in production!
+# 调试所用，一般true
 DEBUG = True
 
 ALLOWED_HOSTS = [
@@ -33,6 +34,7 @@ ALLOWED_HOSTS = [
 
 
 # Application definition
+# 重载authentication
 AUTHENTICATION_BACKEND =(
     'user.views.CustomBackend',
 )
@@ -49,7 +51,8 @@ INSTALLED_APPS = [
     'operations',
     'xadmin',
     'crispy_forms',
-    'reversion'
+    'reversion',
+    'captcha'
 ]
 AUTH_USER_MODEL = "users.UserProfile"
 
@@ -134,10 +137,17 @@ USE_TZ = False
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/2.0/howto/static-files/
-
-STATIC_URL = '/static/'
+# 静态文件默认地址
 # STATIC_ROOT = 'static'
-
+STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR,"static"),
 )
+
+#
+EMAIL_HOST = "smtp.sina.com"
+EMAIL_PORT = 25
+EMAIL_HOST_USER = "dongxialei@sina.com"
+EMAIL_HOST_PASSWORD = "dong15629102022"
+EMAIL_USE_TLS = False
+EMAIL_FROM = "发件人："
